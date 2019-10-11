@@ -1,14 +1,14 @@
 {
-  "name": "tap-dot",
+  "name": "tap-dot-compact",
   "version": "2.0.0",
-  "description": "Formatted TAP output with dots ...",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/scottcorgan/tap-dot.git"
+    "url": "https://github.com/will118/tap-dot-compact.git"
   },
   "keywords": [
     "tap",
@@ -16,14 +16,8 @@
     "tape",
     "test"
   ],
-  "author": "Scott Corgan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/scottcorgan/tap-dot/issues"
-  },
-  "homepage": "https://github.com/scottcorgan/tap-dot",
   "bin": {
-    "tap-dot": "bin/dot"
+    "tap-dot-compact": "bin/dot"
   },
   "dependencies": {
     "chalk": "^1.1.1",

@@ -16,12 +16,10 @@ process.stdin.pipe(tap);
 out.push('\n');
 
 function outPush (str) {
-
   out.push('  ' + str);
 };
 
 tap.on('comment', function (comment) {
-
   lastComment = comment;
 });
 
@@ -46,24 +44,17 @@ tap.on('assert', function (res) {
 });
 
 tap.on('extra', function (str) {
-
   if (str !== '') extra.push(str);
 });
 
 tap.on('output', function (res) {
-
   if (res.fail && res.fail.length || assertCount === 0) {
-    outPush('\n\n\n');
+    outPush('\n\n');
 
     res.fail.forEach(function (failure) {
         outPush(chalk.white('---') + '\n');
-
-        // Use the unwrapped out.push here as the raw error is already indented
-        out.push(chalk.white(failure.error.raw) + '\n');
-
-        var stackPadding = '           '
-        out.push(chalk.white(stackPadding + failure.error.stack.replace(/\n/g, '\n  ' + stackPadding)) + '\n');
-
+        const endPos = failure.error.raw.indexOf('\n    at: ');
+        out.push(chalk.white(failure.error.raw.substring(0, endPos)) + '\n');
         outPush(chalk.white('...') + '\n');
     });
 
@@ -95,22 +86,19 @@ tap.on('output', function (res) {
   }
 
   function statsOutput () {
-
-    outPush('\n\n')
+    outPush('\n')
     outPush(res.tests.length + ' tests\n');
     outPush(chalk.green(res.pass.length + ' passed\n'));
   }
 });
 
 function outputExtra () {
-
   console.log(extra.join('\n'));
 }
 
 out.pipe(process.stdout);
 
 process.on('exit', function () {
-
   if (errors.length || assertCount === 0) {
     process.exit(1);
   }

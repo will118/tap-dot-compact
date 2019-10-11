@@ -1,46 +1,15 @@
-# tap-dot ![NPM version](https://img.shields.io/npm/v/tap-dot.svg?style=flat-square) ![NPM download count](https://img.shields.io/npm/dm/tap-dot.svg?style=flat-square)
+# tap-dot-compact
 
-Formatted TAP output with dots ...
+This is a fork of https://github.com/scottcorgan/tap-dot
 
-**Passed tests**
+Trying to find a tap reporter that doesn't spit out massive stack traces.
 
-![Passed tests](https://i.cloudup.com/NUrIyLYHct.png)
+A bit annoying for TDD.
 
-**Failed tests**
+## Changes from origin
 
-![Failed tests](https://i.cloudup.com/70SmvILs9I.png)
- 
-## Install
- 
-```
-npm install tap-dot --save-dev
-```
- 
+No stack traces and slight tidy
+
 ## Usage
 
-**package.json**
-
-```json
-{
-  "name": "module-name",
-  "scripts": {
-    "test": "node ./test/tap-test.js | tap-dot"
-  }
-}
-```
-
-Then run with `npm test`
- 
-**Terminal**
-
-```
-tape test/index.js | node_modules/.bin/tap-dot
-``` 
-
-**Testling**
-
-```
-npm install testling -g
-testling test/index.js | node_modules/.bin/tap-dot
-```
-
+Pipe
